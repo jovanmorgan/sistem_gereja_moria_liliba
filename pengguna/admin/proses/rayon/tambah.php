@@ -1,0 +1,70 @@
+<?php
+include '../../../../keamanan/koneksi.php';
+
+// Terima data dari formulir HTML
+$nama_rayon = $_POST['nama_rayon'];
+$alamat = $_POST['alamat'];
+$id_majelis = $_POST['id_majelis'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Lakukan validasi data
+if (empty($nama_rayon) || empty($alamat) || empty($id_majelis) || empty($username) || empty($password)) {
+    echo "data_tidak_lengkap";
+    exit();
+}
+
+// Cek apakah username sudah ada di database
+$check_query = "SELECT * FROM pendeta WHERE username = '$username'";
+$result = mysqli_query($koneksi, $check_query);
+if (mysqli_num_rows($result) > 0) {
+    echo "error_username_exists"; // Kirim respon "error_email_exists" jika email sudah terdaftar
+    exit();
+}
+// Cek apakah username sudah ada di database
+$check_query_admin = "SELECT * FROM admin WHERE username = '$username'";
+$result_admin = mysqli_query($koneksi, $check_query_admin);
+if (mysqli_num_rows($result_admin) > 0) {
+    echo "error_username_exists"; // Kirim respon "error_email_exists" jika email sudah terdaftar
+    exit();
+}
+// Cek apakah username sudah ada di database
+$check_query_rayon = "SELECT * FROM rayon WHERE username = '$username'";
+$result_rayon = mysqli_query($koneksi, $check_query_rayon);
+if (mysqli_num_rows($result_rayon) > 0) {
+    echo "error_username_exists"; // Kirim respon "error_email_exists" jika email sudah terdaftar
+    exit();
+}
+// Cek apakah username sudah ada di database
+$check_query_kepala_keluarga = "SELECT * FROM kepala_keluarga WHERE username = '$username'";
+$result_kepala_keluarga = mysqli_query($koneksi, $check_query_kepala_keluarga);
+if (mysqli_num_rows($result_kepala_keluarga) > 0) {
+    echo "error_username_exists"; // Kirim respon "error_email_exists" jika email sudah terdaftar
+    exit();
+}
+
+if (strlen($password) < 8) {
+    echo "error_password_length"; // Kirim respon "error_password_length" jika panjang password kurang dari 8 karakter
+    exit();
+}
+
+// Tambahkan logika untuk memeriksa password
+if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/", $password)) {
+    echo "error_password_strength"; // Kirim respon "error_password_strength" jika password tidak memenuhi syarat
+    exit();
+}
+
+$alamat_program_data = str_replace('<br>', "\n", $alamat);
+// Buat query SQL untuk menambahkan data masyarakat ke dalam database
+$query = "INSERT INTO rayon (nama_rayon, id_majelis, alamat, username, password) 
+        VALUES ('$nama_rayon','$id_majelis', '$alamat_program_data', '$username', '$password')";
+
+// Jalankan query
+if (mysqli_query($koneksi, $query)) {
+    echo "success";
+} else {
+    echo "error";
+}
+
+// Tutup koneksi ke database
+mysqli_close($koneksi);

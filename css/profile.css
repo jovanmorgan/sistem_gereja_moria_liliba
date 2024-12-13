@@ -1,0 +1,13 @@
+.rounded-circle {
+    border-radius: 50%;
+  }
+
+  .nav-link img {
+    border: 2px solid #ddd;
+    padding: 2px;
+  }
+
+  .nav-link img:hover {
+    border-color: #764ba2;
+    /* Match the color of the gradient for a cohesive look */
+  }

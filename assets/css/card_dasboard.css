@@ -1,0 +1,94 @@
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.text-gradient-primary {
+    background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-header,
+.card-footer {
+    transition: background-color 0.3s;
+}
+
+.card:hover .card-header {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.card-footer p {
+    margin-bottom: 0;
+}
+
+.text-decoration-none:hover {
+    text-decoration: none;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.p-5 {
+    padding: 3rem !important;
+}
+
+.rounded {
+    border-radius: 1rem !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.text-gradient-primary {
+    background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-header,
+.card-footer {
+    transition: background-color 0.3s;
+}
+
+.card:hover .card-header {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.card-footer p {
+    margin-bottom: 0;
+}
+
+.text-decoration-none:hover {
+    text-decoration: none;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.card-header {
+    padding-top: 4rem !important;
+}
+
+.card-footer {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}

@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "HookyQR.beautify",
+    "livePreview.defaultPreviewPath": "/404.html",
+    "[php]": {
+        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    }
+}
